@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-desafio
+  labels:
+    app: go-desafio
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-desafio
+  
+  template:
+    metadata:
+      labels:
+        app: go-desafio
+    spec:
+      containers:
+      - name: do-desafio
+        image: rodrigotc94/desafiok8s:go
+        ports:
+        - containerPort: 80
